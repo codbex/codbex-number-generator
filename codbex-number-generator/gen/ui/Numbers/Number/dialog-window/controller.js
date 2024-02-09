@@ -23,6 +23,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.action = params.action;
 				if ($scope.action == "create") {
 					$scope.formErrors = {
+						Type: true,
+						Prefix: true,
 					};
 				}
 				$scope.entity = params.entity;

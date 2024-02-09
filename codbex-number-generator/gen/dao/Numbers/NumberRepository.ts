@@ -5,15 +5,15 @@ import { dao as daoApi } from "sdk/db";
 
 export interface NumberEntity {
     readonly Id: number;
-    Type?: string;
-    Prefix?: string;
+    Type: string;
+    Prefix: string;
     Length?: number;
     Value?: number;
 }
 
 export interface NumberCreateEntity {
-    readonly Type?: string;
-    readonly Prefix?: string;
+    readonly Type: string;
+    readonly Prefix: string;
     readonly Length?: number;
     readonly Value?: number;
 }
@@ -108,11 +108,13 @@ export class NumberRepository {
                 name: "Type",
                 column: "NUMBER_TYPE",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Prefix",
                 column: "NUMBER_PREFIX",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Length",

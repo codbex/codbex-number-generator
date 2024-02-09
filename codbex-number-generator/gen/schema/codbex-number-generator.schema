@@ -18,13 +18,13 @@
                         "length": 50,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "NUMBER_TYPE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "NUMBER_PREFIX"
                     },
                     {

@@ -29,14 +29,14 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
                     <fd-form-item class="fd-row fd-form-item">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idType" dg-required="false" dg-colon="true">Type</fd-form-label>
+                        	<fd-form-label for="idType" dg-required="true" dg-colon="true">Type</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Type ? false : true }}">
 	                            <fd-input id="idType"
 	                                name="Type"
 	                                state="{{ formErrors.Type ? 'error' : '' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-change="isValid(formFieldset['Type'].$valid, 'Type')"
 	                                ng-model="entity.Type"
 	                                ng-readonly="action === 'select'"
@@ -52,14 +52,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row fd-form-item">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPrefix" dg-required="false" dg-colon="true">Prefix</fd-form-label>
+                        	<fd-form-label for="idPrefix" dg-required="true" dg-colon="true">Prefix</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Prefix ? false : true }}">
 	                            <fd-input id="idPrefix"
 	                                name="Prefix"
 	                                state="{{ formErrors.Prefix ? 'error' : '' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-change="isValid(formFieldset['Prefix'].$valid, 'Prefix')"
 	                                ng-model="entity.Prefix"
 	                                ng-readonly="action === 'select'"
