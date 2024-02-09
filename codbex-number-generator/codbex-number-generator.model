@@ -1,0 +1,117 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "NUMBER_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "50",
+                        "dataName": "NUMBER_TYPE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Type",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "NUMBER_PREFIX",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Prefix",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "NUMBER_VALUE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Value",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "NUMBER_LENGTH",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Length",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity Number",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}NUMBER\"",
+                "dataName": "NUMBER",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "number",
+                "menuLabel": "Number",
+                "name": "Number",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/10-plus.svg",
+                "perspectiveName": "Numbers",
+                "perspectiveOrder": "100",
+                "title": "Number",
+                "tooltip": "Number",
+                "type": "PRIMARY"
+            }
+        ],
+        "perspectives": [
+            {
+                "name": "Numbers",
+                "label": "Numbers",
+                "icon": "/services/web/resources/unicons/10-plus.svg",
+                "order": "100"
+            }
+        ],
+        "navigations": []
+    }
+}

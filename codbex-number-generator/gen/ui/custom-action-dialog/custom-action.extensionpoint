@@ -1,0 +1,4 @@
+{
+    "name": "codbex-number-generator-custom-action",
+    "description": "codbex-number-generator - Extension Point for the Application Custom Action Providers"
+}
