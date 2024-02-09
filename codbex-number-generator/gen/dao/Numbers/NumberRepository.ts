@@ -7,15 +7,15 @@ export interface NumberEntity {
     readonly Id: number;
     Type?: string;
     Prefix?: string;
-    Value?: number;
     Length?: number;
+    Value?: number;
 }
 
 export interface NumberCreateEntity {
     readonly Type?: string;
     readonly Prefix?: string;
-    readonly Value?: number;
     readonly Length?: number;
+    readonly Value?: number;
 }
 
 export interface NumberUpdateEntity extends NumberCreateEntity {
@@ -28,50 +28,50 @@ export interface NumberEntityOptions {
             Id?: number | number[];
             Type?: string | string[];
             Prefix?: string | string[];
-            Value?: number | number[];
             Length?: number | number[];
+            Value?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Type?: string | string[];
             Prefix?: string | string[];
-            Value?: number | number[];
             Length?: number | number[];
+            Value?: number | number[];
         };
         contains?: {
             Id?: number;
             Type?: string;
             Prefix?: string;
-            Value?: number;
             Length?: number;
+            Value?: number;
         };
         greaterThan?: {
             Id?: number;
             Type?: string;
             Prefix?: string;
-            Value?: number;
             Length?: number;
+            Value?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Type?: string;
             Prefix?: string;
-            Value?: number;
             Length?: number;
+            Value?: number;
         };
         lessThan?: {
             Id?: number;
             Type?: string;
             Prefix?: string;
-            Value?: number;
             Length?: number;
+            Value?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Type?: string;
             Prefix?: string;
-            Value?: number;
             Length?: number;
+            Value?: number;
         };
     },
     $select?: (keyof NumberEntity)[],
@@ -115,13 +115,13 @@ export class NumberRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Value",
-                column: "NUMBER_VALUE",
+                name: "Length",
+                column: "NUMBER_LENGTH",
                 type: "INTEGER",
             },
             {
-                name: "Length",
-                column: "NUMBER_LENGTH",
+                name: "Value",
+                column: "NUMBER_VALUE",
                 type: "INTEGER",
             }
         ]

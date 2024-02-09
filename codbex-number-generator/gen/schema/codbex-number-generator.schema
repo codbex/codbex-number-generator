@@ -33,7 +33,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "NUMBER_VALUE"
+                        "name": "NUMBER_LENGTH"
                     },
                     {
                         "type": "INTEGER",
@@ -41,7 +41,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "NUMBER_LENGTH"
+                        "name": "NUMBER_VALUE"
                     }
                 ]
             }

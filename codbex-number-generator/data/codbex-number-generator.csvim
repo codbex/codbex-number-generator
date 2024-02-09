@@ -1,0 +1,14 @@
+{
+    "files": [
+        {
+            "table": "CODBEX_NUMBER",
+            "schema": "PUBLIC",
+            "file": "/codbex-number-generator/data/numbers.csv",
+            "header": true,
+            "useHeaderNames": true,
+            "delimField": ",",
+            "delimEnclosing": "\"",
+            "distinguishEmptyFromNull": true
+        }
+    ]
+}
