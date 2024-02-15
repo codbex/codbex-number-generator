@@ -14,7 +14,7 @@ NUMBER_ID,NUMBER_TYPE,NUMBER_PREFIX,NUMBER_LENGTH,NUMBER_VALUE
 13,Purchase Order Change Request,POC,10,0
 14,Purchase Invoice,PI,10,0
 15,Purchase Payment Receipt,PPR,10,0
-16,Stock Receipt,STR,10,0
-17,Stock Issue,STI,10,0
+16,Goods Receipt,STR,10,0
+17,Goods Issue,STI,10,0
 18,Stock Transfer,STT,10,0
 19,Stock Return,STRE,10,0
