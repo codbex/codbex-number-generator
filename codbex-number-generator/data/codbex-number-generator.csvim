@@ -1,14 +1,15 @@
 {
-    "files": [
-        {
-            "table": "CODBEX_NUMBER",
-            "schema": "PUBLIC",
-            "file": "/codbex-number-generator/data/numbers.csv",
-            "header": true,
-            "useHeaderNames": true,
-            "delimField": ",",
-            "delimEnclosing": "\"",
-            "distinguishEmptyFromNull": true
-        }
-    ]
+  "files": [
+    {
+      "table": "CODBEX_NUMBER",
+      "schema": "PUBLIC",
+      "file": "/codbex-number-generator/data/numbers.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    }
+  ]
 }

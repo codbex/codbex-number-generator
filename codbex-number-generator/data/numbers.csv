@@ -18,3 +18,6 @@ NUMBER_ID,NUMBER_TYPE,NUMBER_PREFIX,NUMBER_LENGTH,NUMBER_VALUE
 17,Goods Issue,STI,10,0
 18,Stock Transfer,STT,10,0
 19,Stock Return,STRE,10,0
+20,Customer Payment,CPAY,10,0
+21,Supplier Payment,SPAY,10,0
+22,Employee Payment,EPAY,10,0
