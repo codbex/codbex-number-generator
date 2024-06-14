@@ -4,7 +4,8 @@
             {
                 "properties": [
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
                         "dataLength": "0",
                         "dataName": "NUMBER_ID",
@@ -13,13 +14,16 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "50",
                         "dataName": "NUMBER_TYPE",
@@ -30,13 +34,16 @@
                         "dataType": "VARCHAR",
                         "dataUnique": "true",
                         "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
                         "name": "Type",
                         "widgetIsMajor": "true",
                         "widgetLength": "50",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "NUMBER_PREFIX",
@@ -47,13 +54,16 @@
                         "dataType": "VARCHAR",
                         "dataUnique": "true",
                         "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
                         "name": "Prefix",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "NUMBER_LENGTH",
@@ -64,13 +74,16 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
                         "name": "Length",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpression": "",
+                        "calculatedPropertyExpressionCreate": "",
+                        "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "NUMBER_VALUE",
@@ -81,9 +94,11 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
+                        "isRequiredProperty": "false",
                         "name": "Value",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     }
                 ],
@@ -91,6 +106,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}NUMBER\"",
                 "dataName": "NUMBER",
                 "dataQuery": "",
+                "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -99,11 +115,13 @@
                 "name": "Number",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/10-plus.svg",
+                "perspectiveLabel": "Numbers",
                 "perspectiveName": "Numbers",
                 "perspectiveOrder": "100",
+                "perspectiveRole": "",
                 "title": "Number",
                 "tooltip": "Number",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [
@@ -111,7 +129,8 @@
                 "name": "Numbers",
                 "label": "Numbers",
                 "icon": "/services/web/resources/unicons/10-plus.svg",
-                "order": "100"
+                "order": "100",
+                "role": {}
             }
         ],
         "navigations": []

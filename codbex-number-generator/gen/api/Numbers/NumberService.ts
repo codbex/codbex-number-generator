@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { NumberRepository, NumberEntityOptions } from "../../dao/Numbers/NumberRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-number-generator-Numbers-Number", ["validate"]);
 
 @Controller
 class NumberService {
@@ -24,6 +28,7 @@ class NumberService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-number-generator/gen/api/Numbers/NumberService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -42,13 +47,31 @@ class NumberService {
         }
     }
 
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Number not found");
             }
@@ -61,6 +84,7 @@ class NumberService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -93,4 +117,17 @@ class NumberService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Type?.length > 50) {
+            throw new ValidationError(`The 'Type' exceeds the maximum length of [50] characters`);
+        }
+        if (entity.Prefix?.length > 20) {
+            throw new ValidationError(`The 'Prefix' exceeds the maximum length of [20] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

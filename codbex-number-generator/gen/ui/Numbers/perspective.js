@@ -4,11 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const perspectiveData = {
-	id: "Numbers",
-	name: "Numbers",
-	link: "/services/web/codbex-number-generator/gen/ui/Numbers/index.html",
-	order: "100",
-	icon: "/services/web/resources/unicons/10-plus.svg",
+	id: 'Numbers',
+	name: 'Numbers',
+	link: '/services/web/codbex-number-generator/gen/ui/Numbers/index.html',
+	order: 100,
+	icon: '/services/web/resources/unicons/10-plus.svg',
 };
 
 if (typeof exports !== 'undefined') {

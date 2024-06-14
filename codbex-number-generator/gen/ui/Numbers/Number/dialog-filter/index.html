@@ -26,62 +26,54 @@
             </div>
 
             <fd-fieldset ng-form="forms.details">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                <fd-form-group dg-header="Number Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idType" dg-required="false" dg-colon="true">Type</fd-form-label>
+                        	<fd-form-label for="idType" dg-colon="true">Type</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Type'].$valid }}">
 	                            <fd-input id="idType"
 	                                name="Type"
 	                                state="{{ forms.details['Type'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Type"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="50.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Type">
 	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPrefix" dg-required="false" dg-colon="true">Prefix</fd-form-label>
+                        	<fd-form-label for="idPrefix" dg-colon="true">Prefix</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Prefix'].$valid }}">
 	                            <fd-input id="idPrefix"
 	                                name="Prefix"
 	                                state="{{ forms.details['Prefix'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Prefix"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Prefix">
 	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idLength" dg-required="false" dg-colon="true">Length</fd-form-label>
+                        	<fd-form-label for="idLength" dg-colon="true">Length</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4">
 	                        <fd-step-input dg-id="idLength"
 								name="Length"
 								state="{{ forms.details['Length'].$valid ? '' : 'error' }}"
-								dg-required="false"
 								ng-model="entity.Length"
-								is-readonly="action === 'select'"
 								placeholder="Enter Length"
 								>
 							</fd-step-input>
@@ -89,15 +81,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idValue" dg-required="false" dg-colon="true">Value</fd-form-label>
+                        	<fd-form-label for="idValue" dg-colon="true">Value</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4">
 	                        <fd-step-input dg-id="idValue"
 								name="Value"
 								state="{{ forms.details['Value'].$valid ? '' : 'error' }}"
-								dg-required="false"
 								ng-model="entity.Value"
-								is-readonly="action === 'select'"
 								placeholder="Enter Value"
 								>
 							</fd-step-input>
@@ -110,7 +100,10 @@
 		<fd-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<fd-bar-right>
 				<fd-bar-element>
-					<fd-button dg-label="{{action === 'create' ? 'Create' : 'Update'}}" dg-type="emphasized" ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
+					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
 					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>

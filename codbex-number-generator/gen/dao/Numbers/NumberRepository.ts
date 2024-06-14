@@ -92,6 +92,10 @@ interface NumberEntityEvent {
     }
 }
 
+interface NumberUpdateEntityEvent extends NumberEntityEvent {
+    readonly previousEntity: NumberEntity;
+}
+
 export class NumberRepository {
 
     private static readonly DEFINITION = {
@@ -131,7 +135,7 @@ export class NumberRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(NumberRepository.DEFINITION, null, dataSource);
     }
 
@@ -160,11 +164,13 @@ export class NumberRepository {
     }
 
     public update(entity: NumberUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_NUMBER",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "NUMBER_ID",
@@ -203,8 +209,8 @@ export class NumberRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: NumberEntityOptions): number {
+        return this.dao.count(options);
     }
 
     public customDataCount(): number {
@@ -219,9 +225,8 @@ export class NumberRepository {
         return 0;
     }
 
-
-    private async triggerEvent(data: NumberEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-number-generator/Numbers/Number", ["trigger"]);
+    private async triggerEvent(data: NumberEntityEvent | NumberUpdateEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-number-generator-Numbers-Number", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -229,6 +234,6 @@ export class NumberRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-number-generator/Numbers/Number").send(JSON.stringify(data));
+        producer.topic("codbex-number-generator-Numbers-Number").send(JSON.stringify(data));
     }
 }

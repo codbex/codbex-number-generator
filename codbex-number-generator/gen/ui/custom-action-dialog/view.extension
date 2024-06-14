@@ -1,5 +1,0 @@
-{
-    "module": "codbex-number-generator/gen/ui/custom-action-dialog/view.js",
-    "extensionPoint": "codbex-number-generator-dialog-window",
-    "description": "codbex-number-generator - Custom Action Dialog Window"
-}

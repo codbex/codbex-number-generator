@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-number-generator/gen/ui/Numbers/Number/index.html",
-    perspectiveName: "Numbers"
+    perspectiveName: "Numbers",
 };
 
 if (typeof exports !== 'undefined') {

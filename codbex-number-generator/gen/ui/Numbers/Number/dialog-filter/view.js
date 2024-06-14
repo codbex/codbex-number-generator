@@ -4,9 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "codbex-number-generator-custom-action",
-    label: "Custom Action",
-    link: "/services/web/codbex-number-generator/gen/ui/custom-action-dialog/index.html"
+    id: "Number-filter",
+    label: "Number Filter",
+    link: "/services/web/codbex-number-generator/gen/ui/Numbers/Number/dialog-filter/index.html",
+    perspectiveName: "Numbers",
 };
 
 if (typeof exports !== 'undefined') {

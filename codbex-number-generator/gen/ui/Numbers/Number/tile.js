@@ -5,13 +5,15 @@
  */
 exports.getTile = function () {
     return {
-        group: "Numbers",
+        group: "codbex-number-generator",
         name: "Number",
         caption: "Manage entity Number",
         tooltip: "Number",
-        // icon: "file-o",
+        type: "SETTING",
+        report: "false",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-number-generator/gen/ui/Numbers/index.html",
         order: "100",
-        groupOrder: "100"
+        groupOrder: "100",
     };
 };

@@ -7,7 +7,7 @@ const viewData = {
     id: "Number-details",
     label: "Number",
     link: "/services/web/codbex-number-generator/gen/ui/Numbers/Number/dialog-window/index.html",
-    perspectiveName: "Numbers"
+    perspectiveName: "Numbers",
 };
 
 if (typeof exports !== 'undefined') {

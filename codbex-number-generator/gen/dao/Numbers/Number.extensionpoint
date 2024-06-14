@@ -1,1 +1,4 @@
-{"location":"codbex-number-generator/gen/dao/Numbers/Number.extensionpoint","name":"codbex-number-generator/Numbers/Number","description":"Extension Point for codbex-number-generator Numbers Number"}
+{
+    "name": "codbex-number-generator-Numbers-Number",
+    "description": "Extension Point for the codbex-number-generator-Numbers-Number entity"
+}

@@ -5,44 +5,26 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-number-generator/gen/api/Numbers/NumberService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 
 		$scope.entity = {};
+		$scope.forms = {
+			details: {},
+		};
 		$scope.formHeaders = {
 			select: "Number Details",
 			create: "Create Number",
 			update: "Update Number"
 		};
-		$scope.formErrors = {};
 		$scope.action = 'select';
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				$scope.action = params.action;
-				if ($scope.action == "create") {
-					$scope.formErrors = {
-						Type: true,
-						Prefix: true,
-					};
-				}
-				$scope.entity = params.entity;
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
-			}
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			$scope.action = params.action;
+			$scope.entity = params.entity;
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
 		}
-
-		$scope.isValid = function (isValid, property) {
-			$scope.formErrors[property] = !isValid ? true : undefined;
-			for (let next in $scope.formErrors) {
-				if ($scope.formErrors[next] === true) {
-					$scope.isFormValid = false;
-					return;
-				}
-			}
-			$scope.isFormValid = true;
-		};
 
 		$scope.create = function () {
 			let entity = $scope.entity;
