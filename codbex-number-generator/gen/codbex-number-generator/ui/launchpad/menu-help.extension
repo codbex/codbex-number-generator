@@ -1,0 +1,5 @@
+{
+    "module": "codbex-number-generator/gen/codbex-number-generator/ui/launchpad/menu-help.js",
+    "extensionPoint": "codbex-number-generator-menu",
+    "description": "codbex-number-generator - Application Menu"
+}
