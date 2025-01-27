@@ -1,5 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-number-generator/navigations/numbers/service.js",
-    "description": "Purchase Invoices Navigation"
-}
