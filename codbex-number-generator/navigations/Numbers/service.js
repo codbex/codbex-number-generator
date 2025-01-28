@@ -3,7 +3,7 @@ const navigationData = {
     label: "Numbers",
     group: "configurations",
     order: 900,
-    link: "/services/web/codbex-number-generator/gen/ui/Numbers/Number/index.html?embedded"
+    link: "/services/web/codbex-number-generator/gen/ui/Numbers/index.html?embedded"
 };
 
 function getNavigation() {
