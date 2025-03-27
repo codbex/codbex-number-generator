@@ -5,14 +5,11 @@
  */
 const perspectiveData = {
 	id: 'Numbers',
-	name: 'Numbers',
-	link: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/index.html',
+	label: 'Numbers',
+	path: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/index.html',
 	order: 100,
-	icon: '/services/web/resources/unicons/10-plus.svg',
+	icon: '/services/web/resources/unicons/10-plus.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

@@ -1,1 +1,5 @@
-{"module":"codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/view.js","extensionPoint":"codbex-number-generator-view","description":"codbex-number-generator - Application View"}
+{
+    "module": "codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/view.js",
+    "extensionPoint": "application-views",
+    "description": "codbex-number-generator - Application View"
+}

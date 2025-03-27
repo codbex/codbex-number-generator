@@ -1,4 +1,4 @@
-import { NumberRepository, NumberEntityOptions } from "../gen/dao/Numbers/NumberRepository";
+import { NumberRepository, NumberEntityOptions } from "../gen/codbex-number-generator/dao/Numbers/NumberRepository";
 
 export class NumberGeneratorService {
 

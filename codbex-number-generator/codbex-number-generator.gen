@@ -6,11 +6,12 @@
   "description": "Generator for Document Numbers",
   "fileName": "codbex-number-generator",
   "dataSource": "DefaultDB",
+  "genFolderName": "codbex-number-generator",
+  "roles": [],
   "projectName": "codbex-number-generator",
-  "workspaceName": "workspace",
+  "workspaceName": "emp",
   "filePath": "codbex-number-generator.model",
   "templateId": "template-application-angular/template/template.js",
-  "genFolderName": "codbex-number-generator",
   "perspectives": {
     "Numbers": {
       "views": [

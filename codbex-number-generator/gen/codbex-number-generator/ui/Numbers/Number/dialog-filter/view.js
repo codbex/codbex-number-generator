@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Number-filter",
-    label: "Number Filter",
-    link: "/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/dialog-filter/index.html",
-    perspectiveName: "Numbers",
+    id: 'Number-filter',
+    label: 'Number Filter',
+    path: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/dialog-filter/index.html',
+    perspectiveName: 'Numbers'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

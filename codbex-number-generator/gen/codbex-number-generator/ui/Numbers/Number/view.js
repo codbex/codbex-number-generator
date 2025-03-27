@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Number",
-    label: "Number",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/index.html",
-    perspectiveName: "Numbers",
+    id: 'Number',
+    label: 'Number',
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    link: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Numbers/Number/index.html',
+    perspectiveName: 'Numbers'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

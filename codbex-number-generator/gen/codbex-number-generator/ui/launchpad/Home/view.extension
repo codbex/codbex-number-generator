@@ -1,5 +1,0 @@
-{
-    "module": "codbex-number-generator/gen/codbex-number-generator/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-number-generator-view",
-    "description": "codbex-number-generator - Application View"
-}

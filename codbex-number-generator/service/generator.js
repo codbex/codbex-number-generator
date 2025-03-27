@@ -1,4 +1,4 @@
-import { NumberRepository } from "../gen/dao/Numbers/NumberRepository";
+import { NumberRepository } from "../gen/codbex-number-generator/dao/Numbers/NumberRepository";
 export class NumberGeneratorService {
     constructor() {
         this.repository = new NumberRepository();

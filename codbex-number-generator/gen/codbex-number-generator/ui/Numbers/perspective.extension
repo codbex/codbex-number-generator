@@ -1,1 +1,5 @@
-{"module":"codbex-number-generator/gen/codbex-number-generator/ui/Numbers/perspective.js","extensionPoint":"codbex-number-generator","description":"codbex-number-generator - Perspective - Numbers"}
+{
+    "module": "codbex-number-generator/gen/codbex-number-generator/ui/Numbers/perspective.js",
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-number-generator - Perspective - Numbers"
+}

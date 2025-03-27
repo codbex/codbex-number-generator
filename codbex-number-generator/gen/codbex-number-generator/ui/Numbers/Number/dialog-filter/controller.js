@@ -1,9 +1,6 @@
-angular.module('page', ["ideUI", "ideView"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-number-generator.Numbers.Number';
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
-
+angular.module('page', ['blimpKit', 'platformView'])
+	.controller('PageController', function ($scope, ViewParameters) {
+		const Dialogs = new DialogHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -16,7 +13,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 		}
 
-		$scope.filter = function () {
+		$scope.filter = () => {
 			let entity = $scope.entity;
 			const filter = {
 				$filter: {
@@ -51,24 +48,33 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Value !== undefined) {
 				filter.$filter.equals.Value = entity.Value;
 			}
-			messageHub.postMessage("entitySearch", {
+			Dialogs.postMessage({ topic: 'codbex-number-generator.Numbers.Number.entitySearch', data: {
 				entity: entity,
 				filter: filter
-			});
+			}});
 			$scope.cancel();
 		};
 
-		$scope.resetFilter = function () {
+		$scope.resetFilter = () => {
 			$scope.entity = {};
 			$scope.filter();
 		};
 
-		$scope.cancel = function () {
-			messageHub.closeDialogWindow("Number-filter");
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: 'Description',
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
 		};
 
-		$scope.clearErrorMessage = function () {
+		$scope.cancel = () => {
+			Dialogs.closeWindow({ id: 'Number-filter' });
+		};
+
+		$scope.clearErrorMessage = () => {
 			$scope.errorMessage = null;
 		};
 
-	}]);
+	});

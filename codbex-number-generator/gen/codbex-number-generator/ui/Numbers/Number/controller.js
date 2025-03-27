@@ -1,42 +1,38 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-number-generator.Numbers.Number';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(["EntityServiceProvider", function (EntityServiceProvider) {
+		EntityServiceProvider.baseUrl = "/services/ts/codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts";
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
-
+	.controller('PageController', function ($scope, EntityService, Extensions, ButtonStates) {
+		const Dialogs = new DialogHub();
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataLimit = 20;
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-number-generator-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "Numbers" && e.view === "Number" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "Numbers" && e.view === "Number" && e.type === "entity");
+		Extensions.getWindows(['codbex-number-generator-custom-action']).then((response) => {
+			$scope.pageActions = response.data.filter(e => e.perspective === "Numbers" && e.view === "Number" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Numbers" && e.view === "Number" && e.type === "entity");
 		});
 
-		$scope.triggerPageAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{},
-				null,
-				true,
-				action
-			);
+		$scope.triggerPageAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				closeButton: true
+			});
 		};
 
-		$scope.triggerEntityAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{
+		$scope.triggerEntityAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				params: {
 					id: $scope.entity.Id
 				},
-				null,
-				true,
-				action
-			);
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
@@ -48,34 +44,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+		Dialogs.addMessageListener({ topic: 'codbex-number-generator.Numbers.Number.entityCreated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-number-generator.Numbers.Number.entityUpdated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-number-generator.Numbers.Number.entitySearch', handler: (data) => {
 			resetPagination();
-			$scope.filter = msg.data.filter;
-			$scope.filterEntity = msg.data.entity;
+			$scope.filter = data.filter;
+			$scope.filterEntity = data.entity;
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
+		}});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber, filter) {
+		$scope.loadPage = (pageNumber, filter) => {
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
 			$scope.dataPage = pageNumber;
-			entityApi.count(filter).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("Number", `Unable to count Number: '${response.message}'`);
-					return;
-				}
-				if (response.data) {
-					$scope.dataCount = response.data;
+			EntityService.count(filter).then((resp) => {
+				if (resp.data) {
+					$scope.dataCount = resp.data.count;
 				}
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
@@ -83,81 +73,109 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (filter) {
 					filter.$offset = offset;
 					filter.$limit = limit;
-					request = entityApi.search(filter);
+					request = EntityService.search(filter);
 				} else {
-					request = entityApi.list(offset, limit);
+					request = EntityService.list(offset, limit);
 				}
-				request.then(function (response) {
-					if (response.status != 200) {
-						messageHub.showAlertError("Number", `Unable to list/filter Number: '${response.message}'`);
-						return;
-					}
+				request.then((response) => {
 					$scope.data = response.data;
+				}, (error) => {
+					Dialogs.showAlert({
+						title: "Number",
+						message: `Unable to list/filter Number: '${error.message}'`,
+						type: AlertTypes.Error
+					});
+					console.error('EntityService:', error);
 				});
+			}, (error) => {
+				Dialogs.showAlert({
+					title: "Number",
+					message: `Unable to count Number: '${error.message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 		$scope.loadPage($scope.dataPage, $scope.filter);
 
-		$scope.selectEntity = function (entity) {
+		$scope.selectEntity = (entity) => {
 			$scope.selectedEntity = entity;
 		};
 
-		$scope.openDetails = function (entity) {
+		$scope.openDetails = (entity) => {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("Number-details", {
-				action: "select",
-				entity: entity,
-			});
-		};
-
-		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("Number-filter", {
-				entity: $scope.filterEntity,
-			});
-		};
-
-		$scope.createEntity = function () {
-			$scope.selectedEntity = null;
-			messageHub.showDialogWindow("Number-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
-		};
-
-		$scope.updateEntity = function (entity) {
-			messageHub.showDialogWindow("Number-details", {
-				action: "update",
-				entity: entity,
-			}, null, false);
-		};
-
-		$scope.deleteEntity = function (entity) {
-			let id = entity.Id;
-			messageHub.showDialogAsync(
-				'Delete Number?',
-				`Are you sure you want to delete Number? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
+			Dialogs.showWindow({
+				id: 'Number-details',
+				params: {
+					action: "select",
+					entity: entity,
 				},
-				{
+				closeButton: true,
+			});
+		};
+
+		$scope.openFilter = (entity) => {
+			Dialogs.showWindow({
+				id: '${property.relationshipEntityName}-details',
+				params: {
+					entity: $scope.filterEntity,
+				},
+				closeButton: true,
+			});
+		};
+
+		$scope.createEntity = () => {
+			$scope.selectedEntity = null;
+			Dialogs.showWindow({
+				id: 'Number-details',
+				params: {
+					action: "create",
+					entity: {},
+				},
+				closeButton: false,
+			});
+		};
+
+		$scope.updateEntity = (entity) => {
+			Dialogs.showWindow({
+				id: '${property.relationshipEntityName}-details',
+				params: {
+					action: "update",
+					entity: entity,
+				},
+				closeButton: false,
+			});
+		};
+
+		$scope.deleteEntity = (entity) => {
+			let id = entity.Id;
+			Dialog.showDialog({
+				title: 'Delete Number?',
+				message: `Are you sure you want to delete Number? This action cannot be undone.`,
+				buttons: [{
+					id: "delete-btn-yes",
+					state: ButtonStates.Emphasized,
+					label: "Yes",
+				}, {
 					id: "delete-btn-no",
-					type: "normal",
 					label: "No",
-				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("Number", `Unable to delete Number: '${response.message}'`);
-							return;
-						}
+				}]
+			}).then((buttonId) => {
+				if (buttonId === "delete-btn-yes") {
+					EntityService.delete(id).then((response) => {
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						messageHub.postMessage("clearDetails");
+						Dialogs.triggerEvent('codbex-number-generator.Numbers.Number.clearDetails');
+					}, (error) => {
+						const message = error.data ? error.data.message : '';
+						Dialogs.showAlert({
+							title: "Number",
+							message: `Unable to delete Number: '${message}'`,
+							type: AlertTypes.Error
+						});
+						console.error('EntityService:', error);
 					});
 				}
 			});
 		};
 
-	}]);
+	});
