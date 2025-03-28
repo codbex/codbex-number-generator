@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-navigations",
     "module": "codbex-number-generator/navigations/Numbers/service.js",
-    "description": "Numbers Navigation"
+    "description": "Numbers Navigation",
+    "role": "admin"
 }
