@@ -9,9 +9,9 @@ externalDocs:
 servers:
   - url: /services/ts
 tags:
-  - name: Numbers
+  - name: Settings
 paths:
-  /codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts:
+  /codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberService.ts:
     get:
       summary: List Number
       parameters:
@@ -32,7 +32,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Numbers
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -63,7 +63,7 @@ paths:
     post:
       summary: Create Number
       tags:
-        - Numbers
+        - Settings
       requestBody:
         content:
           application/json:
@@ -95,7 +95,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts/{id}:
+  /codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberService.ts/{id}:
     get:
       summary: Get Number by Id
       parameters:
@@ -106,7 +106,7 @@ paths:
           schema:
             type: string
       tags:
-        - Numbers
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -144,7 +144,7 @@ paths:
           schema:
             type: string
       tags:
-        - Numbers
+        - Settings
       requestBody:
         content:
           application/json:
@@ -192,7 +192,7 @@ paths:
           schema:
             type: string
       tags:
-        - Numbers
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -214,11 +214,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts/count:
+  /codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberService.ts/count:
     get:
       summary: Count the number of Number
       tags:
-        - Numbers
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -242,7 +242,7 @@ paths:
     post:
       summary: Count the number of Number by NumberFilterOptions
       tags:
-        - Numbers
+        - Settings
       requestBody:
         content:
           application/json:
@@ -326,11 +326,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-number-generator/gen/codbex-number-generator/api/Numbers/NumberService.ts/search:
+  /codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberService.ts/search:
     post:
       summary: Search Number by NumberFilterOptions
       tags:
-        - Numbers
+        - Settings
       requestBody:
         content:
           application/json:

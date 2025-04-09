@@ -1,0 +1,5 @@
+{
+    "module": "codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-number-generator - Application View"
+}
