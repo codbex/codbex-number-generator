@@ -1,0 +1,5 @@
+{
+    "module": "codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/dialog-filter/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-number-generator - Application Dialog Window"
+}
