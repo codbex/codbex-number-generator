@@ -76,7 +76,7 @@ export interface NumberEntityOptions {
     },
     $select?: (keyof NumberEntity)[],
     $sort?: string | (keyof NumberEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -136,10 +136,10 @@ export class NumberRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(NumberRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(NumberRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: NumberEntityOptions): NumberEntity[] {
+    public findAll(options: NumberEntityOptions = {}): NumberEntity[] {
         return this.dao.list(options);
     }
 
