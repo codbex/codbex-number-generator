@@ -7,18 +7,24 @@
   "fileName": "codbex-number-generator",
   "dataSource": "DefaultDB",
   "genFolderName": "codbex-number-generator",
-  "roles": [],
+  "roles": [
+    {
+      "entityName": "Number",
+      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
+    }
+  ],
   "projectName": "codbex-number-generator",
   "workspaceName": "workspace",
   "filePath": "codbex-number-generator.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "Numbers": {
+    "Settings": {
       "views": [
         "Number"
       ],
-      "name": "Numbers",
-      "label": "Numbers",
+      "name": "Settings",
+      "label": "Settings",
       "header": "",
       "order": "100",
       "navId": "",
@@ -156,7 +162,9 @@
       "dataName": "NUMBER",
       "dataQuery": "",
       "description": "Manage entity Number",
-      "generateDefaultRoles": "false",
+      "feedPassword": "YWRtaW4=",
+      "feedUsername": "YWRtaW4=",
+      "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "menuIndex": "100",
@@ -169,6 +177,8 @@
       "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
+      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess",
       "title": "Number",
       "tooltip": "Number",
       "type": "SETTING",

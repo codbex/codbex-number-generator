@@ -1,5 +1,6 @@
 {
     "module": "codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/view.js",
     "extensionPoint": "application-settings",
-    "description": "codbex-number-generator - Application View"
+    "description": "codbex-number-generator - Application View",
+    "role": "codbex-number-generator.Numbers.NumberReadOnly,codbex-number-generator.Numbers.NumberFullAccess"
 }

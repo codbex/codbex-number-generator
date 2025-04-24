@@ -1,5 +1,6 @@
 {
     "module": "codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/dialog-window/view.js",
     "extensionPoint": "application-windows",
-    "description": "codbex-number-generator - Application Dialog Window"
+    "description": "codbex-number-generator - Application Dialog Window",
+    "role": "codbex-number-generator.Numbers.NumberReadOnly,codbex-number-generator.Numbers.NumberFullAccess"
 }

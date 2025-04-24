@@ -1,2 +1,10 @@
 [
+    {
+        "name": "codbex-number-generator.Numbers.NumberReadOnly",
+        "description": "A role that grants read only permission for Number."
+    },
+    {
+        "name": "codbex-number-generator.Numbers.NumberFullAccess",
+        "description": "A role that grants full access for Number."
+    }
 ]
