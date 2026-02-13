@@ -1,9 +1,14 @@
-angular.module('page', ['blimpKit', 'platformView']).controller('PageController', ($scope, ViewParameters) => {
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controller('PageController', ($scope, ViewParameters, LocaleService) => {
 	const Dialogs = new DialogHub();
+	let description = 'Description';
 	$scope.entity = {};
 	$scope.forms = {
 		details: {},
 	};
+
+	LocaleService.onInit(() => {
+		description = LocaleService.t('codbex-number-generator:codbex-number-generator-model.defaults.description');
+	});
 
 	let params = ViewParameters.get();
 	if (Object.keys(params).length) {
@@ -16,36 +21,31 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		let entity = $scope.entity;
 		const filter = {
 			$filter: {
-				equals: {
-				},
-				notEquals: {
-				},
-				contains: {
-				},
-				greaterThan: {
-				},
-				greaterThanOrEqual: {
-				},
-				lessThan: {
-				},
-				lessThanOrEqual: {
-				}
-			},
+				conditions: [],
+				sorts: [],
+				limit: 20,
+				offset: 0
+			}
 		};
 		if (entity.Id !== undefined) {
-			filter.$filter.equals.Id = entity.Id;
+			const condition = { propertyName: 'Id', operator: 'EQ', value: entity.Id };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Type) {
-			filter.$filter.contains.Type = entity.Type;
+			const condition = { propertyName: 'Type', operator: 'LIKE', value: `%${entity.Type}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Prefix) {
-			filter.$filter.contains.Prefix = entity.Prefix;
+			const condition = { propertyName: 'Prefix', operator: 'LIKE', value: `%${entity.Prefix}%` };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Length !== undefined) {
-			filter.$filter.equals.Length = entity.Length;
+			const condition = { propertyName: 'Length', operator: 'EQ', value: entity.Length };
+			filter.$filter.conditions.push(condition);
 		}
 		if (entity.Value !== undefined) {
-			filter.$filter.equals.Value = entity.Value;
+			const condition = { propertyName: 'Value', operator: 'EQ', value: entity.Value };
+			filter.$filter.conditions.push(condition);
 		}
 		Dialogs.postMessage({ topic: 'codbex-number-generator.Settings.Number.entitySearch', data: {
 			entity: entity,
@@ -61,7 +61,7 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 
 	$scope.alert = (message) => {
 		if (message) Dialogs.showAlert({
-			title: 'Description',
+			title: description,
 			message: message,
 			type: AlertTypes.Information,
 			preformatted: true,

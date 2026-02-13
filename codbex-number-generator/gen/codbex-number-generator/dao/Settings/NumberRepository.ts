@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface NumberEntity {
     readonly Id: number;
@@ -79,9 +79,10 @@ export interface NumberEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface NumberEntityEvent {
+export interface NumberEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<NumberEntity>;
@@ -92,7 +93,7 @@ interface NumberEntityEvent {
     }
 }
 
-interface NumberUpdateEntityEvent extends NumberEntityEvent {
+export interface NumberUpdateEntityEvent extends NumberEntityEvent {
     readonly previousEntity: NumberEntity;
 }
 
@@ -140,10 +141,11 @@ export class NumberRepository {
     }
 
     public findAll(options: NumberEntityOptions = {}): NumberEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): NumberEntity | undefined {
+    public findById(id: number, options: NumberEntityOptions = {}): NumberEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

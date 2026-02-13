@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Number-details',
     label: 'Number',
+    translation: {
+        key: 'codbex-number-generator:codbex-number-generator-model.t.NUMBER',
+    },
     path: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/dialog-window/index.html',
     perspectiveName: 'Settings'
 };
