@@ -1,23 +1,16 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://codbex.com",
-  "title": "Document Number Generator",
-  "description": "Generator for Document Numbers",
-  "fileName": "codbex-number-generator",
-  "dataSource": "DefaultDB",
-  "genFolderName": "codbex-number-generator",
-  "roles": [
-    {
-      "entityName": "Number",
-      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
-      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
-    }
-  ],
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Number Generator managing module",
+  "description": "Managing number generator data",
   "projectName": "codbex-number-generator",
   "workspaceName": "workspace",
   "filePath": "codbex-number-generator.model",
-  "templateId": "template-application-angular/template/template.js",
+  "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-number-generator",
+  "genFolderName": "codbex-number-generator",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -32,6 +25,14 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Number",
+      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
+    }
+  ],
+  "tprefix": "codbex-number-generator-model",
   "models": [
     {
       "properties": [
@@ -54,6 +55,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -78,6 +80,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Type",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -104,6 +107,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Prefix",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
@@ -129,6 +133,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Length",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -152,6 +157,7 @@
           "isCalculatedProperty": false,
           "widgetLabel": "Value",
           "widgetDropdownUrl": "",
+          "widgetDropdownControllerUrl": "",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""

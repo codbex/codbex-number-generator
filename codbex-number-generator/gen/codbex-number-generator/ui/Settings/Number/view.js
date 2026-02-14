@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Number',
     label: 'Number',
+    translation: {
+        key: 'codbex-number-generator:codbex-number-generator-model.t.NUMBER',
+    },
     region: 'center',
     lazyLoad: true,
 	autoFocusTab: false,

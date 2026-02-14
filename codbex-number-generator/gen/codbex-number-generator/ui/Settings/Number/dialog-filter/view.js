@@ -6,6 +6,12 @@
 const viewData = {
     id: 'Number-filter',
     label: 'Number Filter',
+    translation: {
+        key: 'codbex-number-generator:codbex-number-generator-model.extName',
+        options: {
+            content: '$t(codbex-number-generator:codbex-number-generator-model.t.NUMBER) $t(codbex-number-generator:codbex-number-generator-model.defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-number-generator/gen/codbex-number-generator/ui/Settings/Number/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

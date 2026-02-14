@@ -15,11 +15,13 @@
                     {
                         "type": "VARCHAR",
                         "length": 50,
+                        "unique": true,
                         "name": "NUMBER_TYPE"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "unique": true,
                         "name": "NUMBER_PREFIX"
                     },
                     {
