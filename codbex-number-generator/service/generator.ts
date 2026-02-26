@@ -1,21 +1,52 @@
-import { NumberRepository, NumberEntityOptions } from "../gen/codbex-number-generator/dao/Settings/NumberRepository";
+import { NumberRepository } from "../gen/codbex-number-generator/data/Settings/NumberRepository";
 
 export class NumberGeneratorService {
 
-    private readonly repository = new NumberRepository();
+    private readonly numberRepository = new NumberRepository();
 
-    public generate(id: number) {
+    public generate(id: number): string | undefined {
         try {
-            const entity = this.repository.findById(id);
-            if (entity) {
-                entity.Value += 1;
-                this.repository.update(entity);
-                const zeroPad = (num: number, places: number) => String(num).padStart(places, '0');
-                const result: String = (entity.Prefix ? entity.Prefix : "") + zeroPad(entity.Value, entity.Length - (entity.Prefix ? entity.Prefix.length : 0));
-                return result;
-            } else {
-                throw new Error("Number not found");
+            const entity = this.numberRepository.findById(id);
+
+            if (!entity) {
+                throw new Error(`Entity with id ${id} not found`);
             }
+
+            entity.Value! += 1;
+            this.numberRepository.update(entity);
+
+            const zeroPad = (num: number, places: number) => String(num).padStart(places, '0');
+            const result: string = (entity.Prefix ? entity.Prefix : "")
+                + zeroPad(entity.Value!, entity.Length!
+                    - (entity.Prefix ? entity.Prefix.length : 0));
+
+            return result;
+
+        } catch (error: any) {
+            console.error(error);
+        }
+    }
+
+    public generateByType(genType: string): string | undefined {
+        try {
+
+            const entity = this.numberRepository.findAll()
+                .filter(item => item.Type === genType).at(0);
+
+            if (!entity) {
+                throw new Error(`Entity with type ${genType} not found`);
+            }
+
+            entity.Value! += 1;
+            this.numberRepository.update(entity);
+
+            const zeroPad = (num: number, places: number) => String(num).padStart(places, '0');
+            const result: string = (entity.Prefix ? entity.Prefix : "")
+                + zeroPad(entity.Value!, entity.Length!
+                    - (entity.Prefix ? entity.Prefix.length : 0));
+
+            return result;
+
         } catch (error: any) {
             console.error(error);
         }
