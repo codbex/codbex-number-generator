@@ -1,4 +1,5 @@
 import { NumberRepository } from "../gen/codbex-number-generator/data/Settings/NumberRepository";
+import { Operator } from '@aerokit/sdk/db'
 
 export class NumberGeneratorService {
 
@@ -30,8 +31,16 @@ export class NumberGeneratorService {
     public generateByType(genType: string): string | undefined {
         try {
 
-            const entity = this.numberRepository.findAll()
-                .filter(item => item.Type === genType).at(0);
+            const entity = this.numberRepository.findAll({
+                conditions: [
+                    {
+                        propertyName: "Type",
+                        operator: Operator.EQ,
+                        value: genType
+                    }
+                ],
+                limit: 1
+            })[0];
 
             if (!entity) {
                 throw new Error(`Entity with type ${genType} not found`);
