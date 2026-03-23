@@ -44,7 +44,7 @@ class NumberController {
             this.checkPermissions('write');
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity) as any;
-            response.setHeader('Content-Location', '/services/ts/codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberService.ts/' + entity.Id);
+            response.setHeader('Content-Location', '/services/ts/codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberController.ts/' + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

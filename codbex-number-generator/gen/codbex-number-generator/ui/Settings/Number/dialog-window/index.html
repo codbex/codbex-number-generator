@@ -31,7 +31,7 @@
 	                                state="{{ forms.details['Type'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Type"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="50.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-number-generator:codbex-number-generator-model.messages.inputEnter' | t:{'name':'$t(codbex-number-generator:codbex-number-generator-model.t.NUMBER_TYPE)'} }}">
@@ -52,7 +52,7 @@
 	                                state="{{ forms.details['Prefix'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Prefix"
-	                                ng-readonly="true"
+	                                ng-readonly="action === 'select'"
 									ng-maxlength="20.0"
 	                                type="text"
 	                                placeholder="{{ 'codbex-number-generator:codbex-number-generator-model.messages.inputEnter' | t:{'name':'$t(codbex-number-generator:codbex-number-generator-model.t.NUMBER_PREFIX)'} }}">
@@ -70,7 +70,7 @@
 								state="{{ forms.details['Length'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Length"
-								is-readonly="true"
+								is-readonly="action === 'select'"
 								placeholder="{{ 'codbex-number-generator:codbex-number-generator-model.messages.inputEnter' | t:{'name':'$t(codbex-number-generator:codbex-number-generator-model.t.NUMBER_LENGTH)'} }}">
 							</bk-step-input>
 	                    </div>
@@ -85,7 +85,7 @@
 								state="{{ forms.details['Value'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Value"
-								is-readonly="true"
+								is-readonly="action === 'select'"
 								placeholder="{{ 'codbex-number-generator:codbex-number-generator-model.messages.inputEnter' | t:{'name':'$t(codbex-number-generator:codbex-number-generator-model.t.NUMBER_VALUE)'} }}">
 							</bk-step-input>
 	                    </div>

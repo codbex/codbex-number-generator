@@ -4,13 +4,21 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Number Generator Management Module",
   "description": "Managing Number Generator Data",
+  "fileName": "codbex-number-generator",
+  "genFolderName": "codbex-number-generator",
+  "dataSource": "DefaultDB",
+  "roles": [
+    {
+      "entityName": "Number",
+      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
+    }
+  ],
+  "tprefix": "codbex-number-generator-model",
   "projectName": "codbex-number-generator",
   "workspaceName": "workspace",
   "filePath": "codbex-number-generator.model",
   "templateId": "template-application-angular-v2/template/template.js",
-  "fileName": "codbex-number-generator",
-  "genFolderName": "codbex-number-generator",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -25,18 +33,11 @@
       "role": ""
     }
   },
-  "roles": [
-    {
-      "entityName": "Number",
-      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
-      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
-    }
-  ],
-  "tprefix": "codbex-number-generator-model",
   "models": [
     {
       "properties": [
         {
+          "auditType": "NONE",
           "dataAutoIncrement": true,
           "dataName": "NUMBER_ID",
           "dataNullable": true,
@@ -62,6 +63,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "50",
           "dataName": "NUMBER_TYPE",
           "dataNullable": false,
@@ -90,6 +92,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataLength": "20",
           "dataName": "NUMBER_PREFIX",
           "dataNullable": false,
@@ -118,6 +121,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "NUMBER_LENGTH",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -143,6 +147,7 @@
           "inputRule": ""
         },
         {
+          "auditType": "NONE",
           "dataName": "NUMBER_VALUE",
           "dataNullable": true,
           "dataType": "INTEGER",
@@ -181,6 +186,7 @@
       "menuIndex": "100",
       "menuKey": "number",
       "menuLabel": "Number",
+      "multilingual": "false",
       "name": "Number",
       "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
