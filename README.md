@@ -1,7 +1,32 @@
-# codbex-number-generator
-Number Generator for Documents
+# <img src="https://www.codbex.com/icon.svg" width="32" style="vertical-align: middle;"> codbex-number-generator
 
-## Local Development with Docker
+## 📖 Table of Contents
+* [🗺️ Entity Data Model (EDM)](#️-entity-data-model-edm)
+* [🧩 Core Entities](#-core-entities)
+* [🔗 Sample Data Modules](#-sample-data-modules)
+* [🐳 Local Development with Docker](#-local-development-with-docker)
+
+## 🗺️ Entity Data Model (EDM)
+
+![model](images/model.png)
+
+## 🧩 Core Entities
+
+### Entity: `Number`
+
+| Field  | Type     | Details                     | Description                              |
+|--------| -------- | --------------------------- | ---------------------------------------- |
+| Id     | INTEGER  | PK, Identity, Nullable      | Unique identifier for the number.        |
+| Type   | VARCHAR  | Length: 50, Unique          | Type of the number.                      |
+| Prefix | VARCHAR  | Length: 20, Unique          | Prefix for the number.                   |
+| Length | INTEGER  | Nullable                    | Length of the number.                    |
+| Value  | INTEGER  | Nullable                    | Value of the number.                     |
+
+## 🔗 Sample Data Modules
+
+- [codbex-number-generator-data](https://github.com/codbex/codbex-number-generator-data)
+
+## 🐳 Local Development with Docker
 
 When running this project inside the codbex Atlas Docker image, you must provide authentication for installing dependencies from GitHub Packages.
 1. Create a GitHub Personal Access Token (PAT) with `read:packages` scope.
