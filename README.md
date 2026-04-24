@@ -16,9 +16,9 @@
 
 | Field  | Type     | Details                     | Description                              |
 |--------| -------- | --------------------------- | ---------------------------------------- |
-| Id     | INTEGER  | PK, Identity, Nullable      | Unique identifier for the number.        |
-| Type   | VARCHAR  | Length: 50, Unique          | Type of the number.                      |
-| Prefix | VARCHAR  | Length: 20, Unique          | Prefix for the number.                   |
+| Id     | INTEGER  | PK, Identity      | Unique identifier for the number.        |
+| Type   | VARCHAR  | Length: 50, Unique, Not Null          | Type of the number.                      |
+| Prefix | VARCHAR  | Length: 20, Unique, Not Null         | Prefix for the number.                   |
 | Length | INTEGER  | Nullable                    | Length of the number.                    |
 | Value  | INTEGER  | Nullable                    | Value of the number.                     |
 
