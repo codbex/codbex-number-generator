@@ -1,24 +1,16 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://www.codbex.com/",
-  "title": "Number Generator Management Module",
-  "description": "Managing Number Generator Data",
-  "fileName": "codbex-number-generator",
-  "genFolderName": "codbex-number-generator",
-  "dataSource": "DefaultDB",
-  "roles": [
-    {
-      "entityName": "Number",
-      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
-      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
-    }
-  ],
-  "tprefix": "codbex-number-generator-model",
+  "brandUrl": "https://www.codbex.com",
+  "title": "Number Generator Management Application",
+  "description": "Managing number generator data",
   "projectName": "codbex-number-generator",
   "workspaceName": "workspace",
   "filePath": "codbex-number-generator.model",
   "templateId": "template-application-angular-v2/template/template.js",
+  "fileName": "codbex-number-generator",
+  "genFolderName": "codbex-number-generator",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -33,6 +25,14 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "Number",
+      "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+      "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess"
+    }
+  ],
+  "tprefix": "codbex-number-generator-model",
   "models": [
     {
       "properties": [
