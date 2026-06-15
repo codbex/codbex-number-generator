@@ -3,7 +3,7 @@ package service;
 import gen.codbex_number_generator.data.settings.NumberEntity;
 import gen.codbex_number_generator.data.settings.NumberRepository;
 
-import org.eclipse.dirigible.engine.java.annotations.Inject;
+import org.eclipse.dirigible.sdk.component.Inject;
 
 import java.util.List;
 import java.util.Map;
