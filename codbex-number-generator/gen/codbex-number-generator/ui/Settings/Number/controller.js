@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-number-generator/gen/codbex-number-generator/api/Settings/NumberController.ts';
+		EntityServiceProvider.baseUrl = '/services/java/codbex-number-generator/gen/codbex_number_generator/api/settings/NumberController';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
