@@ -1,0 +1,111 @@
+{
+    "model": {
+        "entities": [
+            {
+                "properties": [
+                    {
+                        "auditType": "NONE",
+                        "dataAutoIncrement": "true",
+                        "dataName": "NUMBER_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Id",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "50",
+                        "dataName": "NUMBER_TYPE",
+                        "dataNullable": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Type",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "50",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataLength": "20",
+                        "dataName": "NUMBER_PREFIX",
+                        "dataNullable": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "description": "",
+                        "name": "Prefix",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataName": "NUMBER_LENGTH",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Length",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "auditType": "NONE",
+                        "dataName": "NUMBER_VALUE",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Value",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity Number",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}NUMBER\"",
+                "dataName": "NUMBER",
+                "dataQuery": "",
+                "description": "Manage entity Number",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
+                "generateDefaultRoles": "true",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "number",
+                "menuLabel": "Number",
+                "multilingual": "false",
+                "name": "Number",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "Settings",
+                "perspectiveName": "Settings",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "roleRead": "codbex-number-generator.Numbers.NumberReadOnly",
+                "roleWrite": "codbex-number-generator.Numbers.NumberFullAccess",
+                "title": "Number",
+                "tooltip": "Number",
+                "type": "SETTING"
+            }
+        ],
+        "perspectives": [],
+        "navigations": []
+    }
+}

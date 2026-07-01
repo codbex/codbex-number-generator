@@ -1,0 +1,42 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_NUMBER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "NUMBER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "unique": true,
+                        "name": "NUMBER_TYPE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "unique": true,
+                        "name": "NUMBER_PREFIX"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "NUMBER_LENGTH"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "NUMBER_VALUE"
+                    }
+                ]
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

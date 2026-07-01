@@ -5,7 +5,6 @@ import gen.codbex_number_generator.data.settings.NumberRepository;
 
 import org.eclipse.dirigible.components.api.security.UserFacade;
 import org.eclipse.dirigible.sdk.platform.Documentation;
-import org.eclipse.dirigible.sdk.component.Inject;
 import org.eclipse.dirigible.sdk.http.Body;
 import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Delete;
@@ -30,8 +29,11 @@ public class NumberController {
 
     private static final Set<String> FILTER_FIELDS = Set.of("Id", "Type", "Prefix", "Length", "Value");
 
-    @Inject
-    private NumberRepository repository;
+    private final NumberRepository repository;
+
+    public NumberController(NumberRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     @Documentation("List Number")
